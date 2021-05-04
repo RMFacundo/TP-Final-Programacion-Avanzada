@@ -1,4 +1,4 @@
-package utn.example.UTN.domain;
+package utn.example.UTN.model;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -14,22 +14,20 @@ import javax.persistence.*;
 @Builder
 @Entity
 
-public class Domicilio {
+public class Residence {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     Integer id;
 
     @NotNull
-    String callePrincipal;
+    String street;
     @NotNull
-    String numero;
-
-    String calleSecundaria;
+    String number;
 
     @OneToOne
-    @JoinColumn(name = "medidor_id")
-    Medidor medidor;
+    @JoinColumn(name = "energyMeter_serialNumber")
+    EnergyMeter energyMeter;
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    Cliente cliente;
 }

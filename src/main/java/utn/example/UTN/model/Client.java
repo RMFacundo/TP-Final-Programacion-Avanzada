@@ -1,4 +1,4 @@
-package utn.example.UTN.domain;
+package utn.example.UTN.model;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -15,22 +15,22 @@ import java.util.ArrayList;
 @Builder
 @Entity
 
-public class Cliente {
+public class Client {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer Id;
+    Integer id;
 
     @NotNull
-    String nombre;
+    String name;
     @NotNull
-    String apellido;
+    String lastName;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "domicilio_id")
-    ArrayList<Domicilio> domicilio;
+    @JoinColumn(name = "residence_id")
+    ArrayList<Residence> residence;
 
     @OneToMany
-    @JoinColumn(name = "factura_id")
-    ArrayList<Factura> factura;
+    @JoinColumn(name = "invoice_id")
+    ArrayList<Invoice> invoice;
 }

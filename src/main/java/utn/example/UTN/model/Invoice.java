@@ -1,4 +1,4 @@
-package utn.example.UTN.domain;
+package utn.example.UTN.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,28 +14,28 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 
-public class Factura {
+public class Invoice {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     Integer id;
 
-    Float consumoTotal;
-    LocalDateTime fechaEmision;
+    Float totalConsumption;
+    LocalDateTime emissionDate;
 
-    TipoTarifa tipoTarifa;
-
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    Cliente cliente;
+    FeeType feeType;
 
     @ManyToOne
-    @JoinColumn(name = "domicilio_id")
-    Domicilio domicilio;
+    @JoinColumn(name = "client_id")
+    Client client;
 
     @ManyToOne
-    @JoinColumn(name = "medidor_numeroMedidor")
-    Medidor medidor;
+    @JoinColumn(name = "residence_id")
+    Residence residence;
+
+    @ManyToOne
+    @JoinColumn(name = "energyMeter_serialNumber")
+    EnergyMeter energyMeter;
 }
 
 // DEBE TENER;

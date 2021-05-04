@@ -1,4 +1,4 @@
-package utn.example.UTN.domain;
+package utn.example.UTN.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,15 +15,15 @@ import java.time.LocalDateTime;
 @Entity
 
 
-public class Medidor {
+public class EnergyMeter {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer numeroMedidor;
+    Integer serialNumber;
 
-    String marca;
-    String modelo;
-    LocalDateTime fechaInicial;
-    Float medicion;
+    String brand;
+    String model;
+    LocalDateTime initialDate;
+    Float measure;
 
 }
