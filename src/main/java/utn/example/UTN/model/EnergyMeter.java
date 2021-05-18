@@ -19,11 +19,11 @@ public class EnergyMeter {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer serialNumber;
+    private Integer serialNumber;
 
-    String brand;
-    String model;
-    LocalDateTime initialDate;
-    Float measure;
+    private String brand;
+    private String model;
+
+    private Float measure;
 
 }

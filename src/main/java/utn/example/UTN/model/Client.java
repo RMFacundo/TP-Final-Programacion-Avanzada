@@ -19,18 +19,17 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer id;
-
-    @NotNull
-    String name;
-    @NotNull
-    String lastName;
+    private Integer id;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "residence_id")
-    ArrayList<Residence> residence;
+    private ArrayList<Residence> residence;
 
     @OneToMany
     @JoinColumn(name = "invoice_id")
-    ArrayList<Invoice> invoice;
+    private ArrayList<Invoice> invoice;
+
+    @OneToOne
+    @JoinColumn(name="username",foreignKey = @ForeignKey(name="FK_clients_users"))
+    private User user;
 }

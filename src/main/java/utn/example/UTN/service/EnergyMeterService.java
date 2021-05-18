@@ -24,7 +24,8 @@ public class EnergyMeterService {
     }
 
     public EnergyMeter getByID(Integer id) {
-        return energyMeterRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
+        return energyMeterRepository.findById(id)
+                .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
     }
 
     public void add(EnergyMeter energyMeter) {

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -14,25 +15,18 @@ import javax.persistence.*;
 @Builder
 @Entity
 
-public class Residence {
-
+public class Measurement {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
-    private String street;
+    private LocalDateTime date;
     @NotNull
-    private String number;
-    @NotNull
-    private Integer postalNumber;
+    private Float measurementsKwH;
+    private Boolean facturada;
 
-    @NotNull
-    private FeeType feeType;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "energyMeter_serialNumber")
     private EnergyMeter energyMeter;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    Cliente cliente;
 }

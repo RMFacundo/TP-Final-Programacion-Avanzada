@@ -18,24 +18,33 @@ public class Invoice {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
-    Float totalConsumption;
-    LocalDateTime emissionDate;
+    //CONSUMPTION
+    private Integer initialConsumption;
+    private Integer finalConsumption;
+    private Float totalConsumption;
 
-    FeeType feeType;
+    //DATES
+    private LocalDateTime emissionDate;
+    private LocalDateTime initialReadingDate;
+    private LocalDateTime finalReadingDate;
+
+
+    @Column(columnDefinition = "bool default 0")
+    private Boolean paid;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    Client client;
+    private Client client;
 
     @ManyToOne
     @JoinColumn(name = "residence_id")
-    Residence residence;
+    private Residence residence;
 
     @ManyToOne
     @JoinColumn(name = "energyMeter_serialNumber")
-    EnergyMeter energyMeter;
+    private EnergyMeter energyMeter;
 }
 
 // DEBE TENER;

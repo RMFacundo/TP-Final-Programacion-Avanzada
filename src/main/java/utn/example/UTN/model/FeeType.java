@@ -1,13 +1,17 @@
 package utn.example.UTN.model;
 
 public enum FeeType {
-    TOTAL("total",105.0f),
-    PARTIAL("partial",55.0f);
+    RESIDENTIAL(1,"RESIDENTIAL",60),
+    COMERTIAL(2,"COMERTIAL",75),
+    INDUSTRIAL(3,"INDUSTRIAL",40),
+    OTHER(4,"OTHER",65);
 
+    private Integer id;
     private String detail;
-    private Float pricePerKwh;
+    private Integer pricePerKwh;
 
-    FeeType(String detail, Float pricePerKwh) {
+    FeeType(Integer id, String detail, Integer pricePerKwh) {
+        this.id = id;
         this.detail = detail;
         this.pricePerKwh = pricePerKwh;
     }
@@ -16,7 +20,7 @@ public enum FeeType {
         return detail;
     }
 
-    public Float getPricePerKwh() {
+    public Integer getPricePerKwh() {
         return pricePerKwh;
     }
 }
